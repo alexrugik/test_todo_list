@@ -1,3 +1,5 @@
+module.exports = 'app.core.components.header';
+
 angular.module('app.core.components.header', [])
     .component('header', {
       templateUrl: 'app/core/components/header/header.template.html',

@@ -1,3 +1,5 @@
+module.exports = 'app.main';
+
 angular
     .module('app.main', [])
     .component('main', {
@@ -12,10 +14,11 @@ function MainController() {
   var $ctrl = this;
 
   $ctrl.name = 'Main';
+  $ctrl.greeting = greeting;
 
   init();
 
-  function init () {
+  function init() {
 
   }
 

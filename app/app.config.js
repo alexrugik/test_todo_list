@@ -1,5 +1,4 @@
-angular.module('app')
-    .config(Config);
+module.exports = Config;
 
 Config.$inject = [
   '$stateProvider',
@@ -9,9 +8,9 @@ Config.$inject = [
 
 function Config($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode({
-    enabled: false,
-    requireBase: true
-  }).hashPrefix('!');
+    enabled: true,
+    requireBase: false
+  });
 
   $urlRouterProvider.otherwise('/');
 
@@ -39,5 +38,8 @@ function Config($stateProvider, $urlRouterProvider, $locationProvider) {
         url: '/view2',
         parent: 'abstract',
         views: { 'main': { template: '<view2></view2>' } }
+      })
+      .state('otherwise', {
+        url: '/',
       })
 }

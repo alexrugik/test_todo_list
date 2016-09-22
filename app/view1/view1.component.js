@@ -1,3 +1,5 @@
+module.exports = 'app.view1';
+
 angular.module('app.view1', [])
     .component('view1', {
       templateUrl: 'app/view1/view1.template.html',

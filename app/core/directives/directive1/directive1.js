@@ -1,3 +1,5 @@
+module.exports = 'app.core.directives.directive1';
+
 angular.module('app.core.directives.directive1', [])
     .directive('directive1', Directive1);
 

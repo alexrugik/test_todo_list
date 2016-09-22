@@ -1,8 +1,7 @@
-angular.module('app')
-    .run(Run);
+module.exports = Run;
 
 Run.$inject = ['$rootScope'];
 
 function Run($rootScope) {
-
+  console.log('APP.RUN');
 }

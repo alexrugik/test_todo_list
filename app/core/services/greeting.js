@@ -1,3 +1,5 @@
+module.exports = 'app.core.services.greeting';
+
 angular.module('app.core.services.greeting', [])
   .service('greetingService', GreetingService);
 

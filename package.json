@@ -12,13 +12,20 @@
     "angular-resource": "^1.5.8",
     "angular-route": "^1.5.8",
     "angular-ui-router": "^1.0.0-beta.2",
-    "webpack": "^2.1.0-beta.25",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "webpack": "^1.13.0",
     "webpack-dev-server": "^1.16.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "style-loader": "^0.13.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server"
+    "start": "http-server",
+    "server details": "webpack-dev-server --progress --profile --colors --display-error-details --display-cached --watch",
+    "server": "webpack-dev-server --progress --profile --colors --watch"
   },
   "author": "",
   "license": "ISC"

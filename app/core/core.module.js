@@ -1,7 +1,9 @@
+module.exports = 'app.core';
+
 angular.module('app.core', [
-  'app.core.directives.directive1',
-  'app.core.directives.directive2',
-  'app.core.services.greeting',
-  'app.core.components.header',
-  'app.core.components.footer'
+  require('./directives/directive1/directive1'),
+  require('./directives/directive2/directive2'),
+  require('./services/greeting'),
+  require('./components/header/header.component'),
+  require('./components/footer/footer.component')
 ]);
