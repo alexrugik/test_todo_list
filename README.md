@@ -8,7 +8,6 @@ How to install?</br>
 4)npm run server (localhost:8080 must be free)</br>
 
 Where and what?</br>
-
 app -angular application</br>
 app/core - reusable components|directives|services|resourses</br>
 app/main|view1|view2 - pages as components</br>
