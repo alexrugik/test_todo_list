@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = 'app.core.services.greeting';
 
 angular.module('app.core.services.greeting', [])

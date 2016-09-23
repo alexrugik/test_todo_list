@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = 'app.core.directives.directive1';
 
 angular.module('app.core.directives.directive1', [])

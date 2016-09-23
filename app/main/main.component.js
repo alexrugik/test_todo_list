@@ -8,9 +8,9 @@ angular
       controllerAs: '$ctrl'
     });
 
-MainController.$inject = [];
+MainController.$inject = ['$state'];
 
-function MainController() {
+function MainController($state) {
   var $ctrl = this;
 
   $ctrl.name = 'Main';

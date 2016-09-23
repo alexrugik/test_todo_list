@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = 'app.view1';
 
 angular.module('app.view1', [])

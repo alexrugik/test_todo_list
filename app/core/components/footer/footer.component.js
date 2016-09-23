@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = 'app.core.components.footer';
 
 angular.module('app.core.components.footer', [])

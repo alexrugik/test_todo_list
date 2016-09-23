@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = Config;
 
 Config.$inject = [

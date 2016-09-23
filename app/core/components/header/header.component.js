@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = 'app.core.components.header';
 
 angular.module('app.core.components.header', [])

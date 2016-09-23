@@ -1,3 +1,5 @@
+'use strict';
+
 var dependency = [
   'angular',
   'angular-ui-router',

@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = 'app.core';
 
 angular.module('app.core', [
