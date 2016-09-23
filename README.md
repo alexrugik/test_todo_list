@@ -13,3 +13,4 @@ app/core - reusable components|directives|services|resourses</br>
 app/main|view1|view2 - pages as components</br>
 app/app.module - entry for webpack</br>
 assets/assets.module - entry for assets(css,less,sass)</br>
+web - public folder where webpack build our application
