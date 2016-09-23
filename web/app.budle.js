@@ -44,20 +44,17 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	
+	__webpack_require__(1);
+
 	angular.module('app', [
-	  'ngAnimate',
-	  'ngAria',
-	  'ngMaterial',
-	  'ngMessages',
 	  'ui.router',
-	  __webpack_require__(1),
-	  __webpack_require__(7),
-	  __webpack_require__(8),
-	  __webpack_require__(9)
+	  __webpack_require__(4),
+	  __webpack_require__(10),
+	  __webpack_require__(11),
+	  __webpack_require__(12)
 	])
-	    .config(__webpack_require__(10))
-	    .run(__webpack_require__(11));
+	    .config(__webpack_require__(13))
+	    .run(__webpack_require__(14));
 
 
 
@@ -65,19 +62,40 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = 'app.core';
-
-	angular.module('app.core', [
-	  __webpack_require__(2),
-	  __webpack_require__(3),
-	  __webpack_require__(4),
-	  __webpack_require__(5),
-	  __webpack_require__(6)
-	]);
+	// here we adding styles dependencies
+	__webpack_require__(2);
+	__webpack_require__(3);
 
 
 /***/ },
 /* 2 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = 'app.core';
+
+	angular.module('app.core', [
+	  __webpack_require__(5),
+	  __webpack_require__(6),
+	  __webpack_require__(7),
+	  __webpack_require__(8),
+	  __webpack_require__(9)
+	]);
+
+
+/***/ },
+/* 5 */
 /***/ function(module, exports) {
 
 	module.exports = 'app.core.directives.directive1';
@@ -108,7 +126,7 @@
 
 
 /***/ },
-/* 3 */
+/* 6 */
 /***/ function(module, exports) {
 
 	module.exports = 'app.core.directives.directive2';
@@ -140,7 +158,7 @@
 
 
 /***/ },
-/* 4 */
+/* 7 */
 /***/ function(module, exports) {
 
 	module.exports = 'app.core.services.greeting';
@@ -158,7 +176,7 @@
 
 
 /***/ },
-/* 5 */
+/* 8 */
 /***/ function(module, exports) {
 
 	module.exports = 'app.core.components.header';
@@ -173,19 +191,28 @@
 
 	function HeaderController($state) {
 	  var $ctrl = this;
-	  console.log($state);
-	  $ctrl.currentNavItem = $state.current.name;
+
+	  $ctrl.isActive = isActive;
+
 
 	  init();
 
 	  function init() {
+
+	  }
+
+	  function isActive(state) {
+	    if (state === $state.current.name) {
+	      return 'active';
+	    }
+	    return false;
 	  }
 
 	}
 
 
 /***/ },
-/* 6 */
+/* 9 */
 /***/ function(module, exports) {
 
 	module.exports = 'app.core.components.footer';
@@ -204,7 +231,7 @@
 
 
 /***/ },
-/* 7 */
+/* 10 */
 /***/ function(module, exports) {
 
 	module.exports = 'app.main';
@@ -225,6 +252,15 @@
 	  $ctrl.name = 'Main';
 	  $ctrl.greeting = greeting;
 
+	  var alex = { name: 'Alex', age: 28, brother: {name:'Slava', political: 'false'}, serteficated: true  };
+	  var second = { name: 'Second'};
+	  var e = angular.extend({}, alex, second);
+	  console.log(e);
+
+	  var m = angular.merge({}, alex, second);
+	  console.log(m);
+
+
 	  init();
 
 	  function init() {
@@ -239,7 +275,7 @@
 
 
 /***/ },
-/* 8 */
+/* 11 */
 /***/ function(module, exports) {
 
 	module.exports = 'app.view1';
@@ -262,7 +298,7 @@
 
 
 /***/ },
-/* 9 */
+/* 12 */
 /***/ function(module, exports) {
 
 	module.exports = 'app.view2';
@@ -291,7 +327,7 @@
 
 
 /***/ },
-/* 10 */
+/* 13 */
 /***/ function(module, exports) {
 
 	module.exports = Config;
@@ -342,7 +378,7 @@
 
 
 /***/ },
-/* 11 */
+/* 14 */
 /***/ function(module, exports) {
 
 	module.exports = Run;
@@ -350,7 +386,7 @@
 	Run.$inject = ['$rootScope'];
 
 	function Run($rootScope) {
-	  console.log('APP.RUN');
+
 	}
 
 

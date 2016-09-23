@@ -1,9 +1,13 @@
-<div ng-cloak="" class="navBardemoBasicUsage">
-    <md-content class="md-padding">
-        <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-sref="main" name="main">Main Page</md-nav-item>
-            <md-nav-item md-nav-sref="view1" name="view1">View1 Page</md-nav-item>
-            <md-nav-item md-nav-sref="view2" name="view2">View2 Page</md-nav-item>
-        </md-nav-bar>
-    </md-content>
-</div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Angular starter by Alex</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li ng-class="$ctrl.isActive('main')"><a ng-href="main">Home</a></li>
+            <li ng-class="$ctrl.isActive('view1')"><a ng-href="view1">View 1</a></li>
+            <li ng-class="$ctrl.isActive('view2')"><a ng-href="view2">View 2</a></li>
+            <li><a ng-href="#">View 3</a></li>
+        </ul>
+    </div>
+</nav>

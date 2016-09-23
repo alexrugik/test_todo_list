@@ -10,12 +10,21 @@ HeaderController.$inject = ['$state'];
 
 function HeaderController($state) {
   var $ctrl = this;
-  console.log($state);
-  $ctrl.currentNavItem = $state.current.name;
+
+  $ctrl.isActive = isActive;
+
 
   init();
 
   function init() {
+
+  }
+
+  function isActive(state) {
+    if (state === $state.current.name) {
+      return 'active';
+    }
+    return false;
   }
 
 }

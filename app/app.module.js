@@ -1,10 +1,6 @@
-require('./styles/main.css');
+require('../assets/assets.module');
 
 angular.module('app', [
-  'ngAnimate',
-  'ngAria',
-  'ngMaterial',
-  'ngMessages',
   'ui.router',
   require('./core/core.module'),
   require('./main/main.component'),

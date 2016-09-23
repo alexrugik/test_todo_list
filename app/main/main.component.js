@@ -16,6 +16,15 @@ function MainController() {
   $ctrl.name = 'Main';
   $ctrl.greeting = greeting;
 
+  var alex = { name: 'Alex', age: 28, brother: {name:'Slava', political: 'false'}, serteficated: true  };
+  var second = { name: 'Second'};
+  var e = angular.extend({}, alex, second);
+  console.log(e);
+
+  var m = angular.merge({}, alex, second);
+  console.log(m);
+
+
   init();
 
   function init() {
