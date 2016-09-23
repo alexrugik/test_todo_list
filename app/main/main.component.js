@@ -15,15 +15,8 @@ function MainController($state) {
 
   $ctrl.name = 'Main';
   $ctrl.greeting = greeting;
-
-  var alex = { name: 'Alex', age: 28, brother: {name:'Slava', political: 'false'}, serteficated: true  };
-  var second = { name: 'Second'};
-  var e = angular.extend({}, alex, second);
-  console.log(e);
-
-  var m = angular.merge({}, alex, second);
-  console.log(m);
-
+  $ctrl.directiveName = 'This a test directive: type E, one time bind';
+  $ctrl.users = getUsers();
 
   init();
 
@@ -33,6 +26,19 @@ function MainController($state) {
 
   function greeting(name) {
     console.log('Hello ' + name);
+  }
+
+  function getUsers() {
+    return {
+      alex: {
+        name: 'Alex Ruzhinskiy',
+        address: 'Irpin, Ostrovskogo7'
+      },
+      dmitriy: {
+        name: 'Dmitriy Gotra',
+        address: 'Bratislava, Stravska 27'
+      }
+    }
   }
 
 }

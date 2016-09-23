@@ -9,7 +9,7 @@ var dependency = [
 
 var path = require('path');
 
-var Webpack = require('webpack');
+var webpack = require('webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var WebpackDevServer = require('webpack-dev-server');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -46,7 +46,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new Webpack.NoErrorsPlugin(),
+    new webpack.NoErrorsPlugin(),
     new CopyWebpackPlugin([
           {
             context: __dirname + '/app/',
@@ -60,13 +60,20 @@ module.exports = {
           }
         ],
         {
-          copyUnmodified: false
+          copyUnmodified: true
         }),
     new ExtractTextPlugin('styles.bundle.css', {
       allChunks: true
     }),
-    new Webpack.ProvidePlugin({
+    new webpack.ProvidePlugin({
       "jQuery": "jquery"
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      beautify: true,
+      mangle: false,
     })
   ],
   devServer: {
