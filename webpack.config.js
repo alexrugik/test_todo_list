@@ -1,9 +1,5 @@
 var dependency = [
   'angular',
-  'angular-animate',
-  'angular-aria',
-  'angular-material',
-  'angular-messages',
   'angular-ui-router',
   'jquery',
   'bootstrap'
