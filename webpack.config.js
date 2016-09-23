@@ -13,6 +13,7 @@ var webpack = require('webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var WebpackDevServer = require('webpack-dev-server');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var WebpackBrowserPlugin = require('webpack-browser-plugin');
 
 module.exports = {
   context: __dirname + '/app',
@@ -74,7 +75,9 @@ module.exports = {
       },
       beautify: true,
       mangle: false,
-    })
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new WebpackBrowserPlugin()
   ],
   devServer: {
     contentBase: './web',
