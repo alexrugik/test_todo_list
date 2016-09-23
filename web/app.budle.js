@@ -44,24 +44,26 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	__webpack_require__(1);
 
 	angular.module('app', [
 	  'ui.router',
 	  __webpack_require__(4),
-	  __webpack_require__(10),
+	  __webpack_require__(5),
 	  __webpack_require__(11),
-	  __webpack_require__(12)
+	  __webpack_require__(12),
+	  __webpack_require__(13)
 	])
-	    .config(__webpack_require__(13))
-	    .run(__webpack_require__(14));
-
+	    .config(__webpack_require__(14))
 
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
 	// here we adding styles dependencies
 	__webpack_require__(2);
 	__webpack_require__(3);
@@ -81,22 +83,53 @@
 
 /***/ },
 /* 4 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = 'app.core';
+	'use strict';
 
-	angular.module('app.core', [
-	  __webpack_require__(5),
-	  __webpack_require__(6),
-	  __webpack_require__(7),
-	  __webpack_require__(8),
-	  __webpack_require__(9)
-	]);
+	module.exports = 'app.run';
+
+	angular.module('app.run', [])
+	    .run(Run)
+
+	Run.$inject = ['$rootScope'];
+
+	function Run($rootScope) {
+	  $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+	    console.log('start change');
+	    console.log(event);
+	  });
+
+	  $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams) {
+	    console.log('error state change');
+	    console.log(event);
+	  });
+
+	}
 
 
 /***/ },
 /* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = 'app.core';
+
+	angular.module('app.core', [
+	  __webpack_require__(6),
+	  __webpack_require__(7),
+	  __webpack_require__(8),
+	  __webpack_require__(9),
+	  __webpack_require__(10)
+	]);
+
+
+/***/ },
+/* 6 */
 /***/ function(module, exports) {
+
+	'use strict';
 
 	module.exports = 'app.core.directives.directive1';
 
@@ -126,8 +159,10 @@
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports) {
+
+	'use strict';
 
 	module.exports = 'app.core.directives.directive2';
 
@@ -158,8 +193,10 @@
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports) {
+
+	'use strict';
 
 	module.exports = 'app.core.services.greeting';
 
@@ -176,8 +213,10 @@
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports) {
+
+	'use strict';
 
 	module.exports = 'app.core.components.header';
 
@@ -212,8 +251,10 @@
 
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports) {
+
+	'use strict';
 
 	module.exports = 'app.core.components.footer';
 
@@ -231,7 +272,7 @@
 
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports) {
 
 	module.exports = 'app.main';
@@ -244,9 +285,9 @@
 	      controllerAs: '$ctrl'
 	    });
 
-	MainController.$inject = [];
+	MainController.$inject = ['$state'];
 
-	function MainController() {
+	function MainController($state) {
 	  var $ctrl = this;
 
 	  $ctrl.name = 'Main';
@@ -275,8 +316,10 @@
 
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports) {
+
+	'use strict';
 
 	module.exports = 'app.view1';
 
@@ -298,8 +341,10 @@
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports) {
+
+	'use strict';
 
 	module.exports = 'app.view2';
 
@@ -327,8 +372,10 @@
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
+
+	'use strict';
 
 	module.exports = Config;
 
@@ -374,19 +421,6 @@
 	      .state('otherwise', {
 	        url: '/',
 	      })
-	}
-
-
-/***/ },
-/* 14 */
-/***/ function(module, exports) {
-
-	module.exports = Run;
-
-	Run.$inject = ['$rootScope'];
-
-	function Run($rootScope) {
-
 	}
 
 
