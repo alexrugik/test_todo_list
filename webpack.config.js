@@ -77,7 +77,6 @@ module.exports = {
       mangle: false,
     }),
     new webpack.optimize.DedupePlugin(),
-    new WebpackBrowserPlugin()
   ],
   devServer: {
     contentBase: './web',

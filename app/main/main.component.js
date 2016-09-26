@@ -10,18 +10,28 @@ angular
 
 MainController.$inject = ['$state'];
 
-function MainController($state) {
+function MainController($state, $scope) {
   var $ctrl = this;
+
+  $ctrl.$onInit = init;
+  $ctrl.$onDestroy = destroy;
+  $ctrl.$postLink = postLink;
 
   $ctrl.name = 'Main';
   $ctrl.greeting = greeting;
   $ctrl.directiveName = 'This a test directive: type E, one time bind';
   $ctrl.users = getUsers();
 
-  init();
-
   function init() {
+    console.log('init');
+  }
 
+  function destroy() {
+    console.log('destroy');
+  }
+
+  function postLink(el, attr) {
+    console.log('postLink');
   }
 
   function greeting(name) {
