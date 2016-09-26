@@ -32,25 +32,41 @@
     return modules;
 }([ function(module, exports, __webpack_require__) {
     "use strict";
-    __webpack_require__(1), angular.module("app", [ "ui.router", __webpack_require__(4), __webpack_require__(5), __webpack_require__(13), __webpack_require__(14), __webpack_require__(15) ]).config(__webpack_require__(16));
+    __webpack_require__(1), angular.module("app", [ "ngMockE2E", "ui.router", "restmod", __webpack_require__(4), __webpack_require__(5), __webpack_require__(6), __webpack_require__(15), __webpack_require__(16), __webpack_require__(17) ]).config(__webpack_require__(18));
 }, function(module, exports, __webpack_require__) {
     "use strict";
     __webpack_require__(2), __webpack_require__(3);
 }, function(module, exports) {}, 2, function(module, exports) {
     "use strict";
     function Run($rootScope) {
-        $rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams) {
-            console.log("success change"), console.log(event);
-        }), $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
-            console.log("start change"), console.log(event);
-        }), $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams) {
-            console.log("error state change"), console.log(event);
-        });
+        $rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams) {}), 
+        $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {}), 
+        $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams) {});
     }
     module.exports = "app.run", angular.module("app.run", []).run(Run), Run.$inject = [ "$rootScope" ];
+}, function(module, exports) {
+    "use strict";
+    function HttpBackend($httpBackend) {
+        var users = [ {
+            id: 1,
+            name: "Alex"
+        }, {
+            id: 2,
+            name: "Dmitriy"
+        } ];
+        $httpBackend.whenRoute("GET", "/api/users/:id").respond(function(method, url, data, headers, params) {
+            console.log(params);
+            var id = parseInt(params.id);
+            return console.log(id), [ 200, users[id] ];
+        }), $httpBackend.when("GET", /.*/).passThrough(), $httpBackend.when("POST", /.*/).passThrough(), 
+        $httpBackend.when("PUT", /.*/).passThrough(), $httpBackend.when("PATCH", /.*/).passThrough(), 
+        $httpBackend.when("DELETE", /.*/).passThrough(), $httpBackend.when("OPTIONS", /.*/).passThrough();
+    }
+    module.exports = "app.httpBackend", angular.module("app.httpBackend", []).run(HttpBackend), 
+    HttpBackend.$inject = [ "$httpBackend" ];
 }, function(module, exports, __webpack_require__) {
     "use strict";
-    module.exports = "app.core", angular.module("app.core", [ __webpack_require__(6), __webpack_require__(7), __webpack_require__(8), __webpack_require__(9), __webpack_require__(10), __webpack_require__(11), __webpack_require__(12) ]);
+    module.exports = "app.core", angular.module("app.core", [ __webpack_require__(7), __webpack_require__(8), __webpack_require__(9), __webpack_require__(10), __webpack_require__(11), __webpack_require__(12), __webpack_require__(13), __webpack_require__(14) ]);
 }, function(module, exports) {
     "use strict";
     function Directive1() {
@@ -129,6 +145,13 @@
     GreetingService.$inject = [];
 }, function(module, exports) {
     "use strict";
+    function user(restmod) {
+        return restmod.model("/api/users");
+    }
+    module.exports = "app.core.services.user", angular.module("app.core.services.user", []).factory("user", user), 
+    user.$inject = [ "restmod" ];
+}, function(module, exports) {
+    "use strict";
     function HeaderController($state) {
         function init() {}
         function isActive(state) {
@@ -149,32 +172,21 @@
         controller: FooterController
     }), FooterController.$inject = [];
 }, function(module, exports) {
-    function MainController($state) {
+    function MainController($state, $rootScope, $timeout, $interval, user, $http) {
         function init() {}
-        function greeting(name) {
-            console.log("Hello " + name);
-        }
-        function getUsers() {
-            return {
-                alex: {
-                    name: "Alex Ruzhinskiy",
-                    address: "Irpin, Ostrovskogo7"
-                },
-                dmitriy: {
-                    name: "Dmitriy Gotra",
-                    address: "Bratislava, Stravska 27"
-                }
-            };
-        }
+        function destroy() {}
         var $ctrl = this;
-        $ctrl.name = "Main", $ctrl.greeting = greeting, $ctrl.directiveName = "This a test directive: type E, one time bind", 
-        $ctrl.users = getUsers(), init();
+        $ctrl.$onInit = init, $ctrl.$onDestroy = destroy, $ctrl.user = user;
+        var currentUser = $ctrl.user.$find(1);
+        console.log("currentUser = ", currentUser), currentUser.$then(function(resp) {
+            console.log(resp.result);
+        });
     }
     module.exports = "app.main", angular.module("app.main", []).component("main", {
         templateUrl: "app/main/main.template.html",
         controller: MainController,
         controllerAs: "$ctrl"
-    }), MainController.$inject = [ "$state" ];
+    }), MainController.$inject = [ "$state", "$rootScope", "$timeout", "$interval", "user", "$http" ];
 }, function(module, exports) {
     "use strict";
     function View1Controller() {

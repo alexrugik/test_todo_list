@@ -3,6 +3,9 @@
 var dependency = [
   'angular',
   'angular-ui-router',
+  'angular-restmod',
+  'angular-mocks',
+  'httpbackend',
   'jquery',
   'bootstrap'
 ];
