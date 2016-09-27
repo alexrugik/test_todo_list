@@ -5,10 +5,11 @@ module.exports = Config;
 Config.$inject = [
   '$stateProvider',
   '$urlRouterProvider',
-  '$locationProvider'
+  '$locationProvider',
+  'restmodProvider'
 ];
 
-function Config($stateProvider, $urlRouterProvider, $locationProvider) {
+function Config($stateProvider, $urlRouterProvider, $locationProvider, restmodProvider) {
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false

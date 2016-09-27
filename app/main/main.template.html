@@ -1,4 +1,10 @@
 <div>MAIN page</div>
 
-<div>{{$ctrl.user1.getLastName()}}</div>
+<div>
+    <ul>
+        <li ::ng-bind="$ctrl.alex.getFirstName()"></li>
+        <li ::ng-bind="$ctrl.alex.getLastName()"></li>
+        <li ::ng-bind="$ctrl.alex.getAge()"></li>
+    </ul>
+</div>
 <div>TEST</div>

@@ -16,6 +16,9 @@ function MainController($state, $rootScope, $timeout, $interval, User, $http) {
   $ctrl.$onInit = init;
   $ctrl.$onDestroy = destroy;
 
+  $ctrl.alex = User.$find(0);
+
+
   function init() {
   }
 
