@@ -3,10 +3,10 @@
 module.exports = 'app.core.services.user';
 
 angular.module('app.core.services.user', [])
-    .factory('user', user);
+    .factory('User', User);
 
-user.$inject = ['restmod'];
+User.$inject = ['restmod'];
 
-function user(restmod) {
+function User(restmod) {
   return restmod.model('/api/users');
 }
