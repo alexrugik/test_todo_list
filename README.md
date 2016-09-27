@@ -4,7 +4,7 @@ Angular + webpack for quick start
 How to install?</br>
 1)git clone https://github.com/alexrugik/own-angular-starter.git </br>
 2)npm install</br>
-3)webpack</br>
+3)npm run build or webpack</br>
 4)npm run server (localhost:8080 must be free)</br>
 
 Where and what?</br>
