@@ -1,6 +1,9 @@
 'use strict';
 
-module.exports = Config;
+module.exports = 'app.config';
+
+angular.module('app.config', [])
+    .config(Config);
 
 Config.$inject = [
   '$stateProvider',
@@ -43,6 +46,6 @@ function Config($stateProvider, $urlRouterProvider, $locationProvider, restmodPr
         views: { 'main': { template: '<view2></view2>' } }
       })
       .state('otherwise', {
-        url: '/',
+        url: '/'
       })
 }
