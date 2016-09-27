@@ -1,6 +1,6 @@
 'use strict';
-var Users = require('./core/services/models/users');
-var User = require('./core/services/models/user');
+var Users = require('./core/services/user/models/users');
+var User = require('./core/services/user/models/user');
 
 module.exports = 'app.httpBackend';
 
