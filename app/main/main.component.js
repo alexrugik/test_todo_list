@@ -16,10 +16,13 @@ function MainController($state, $rootScope, $timeout, $interval, user, $http) {
   $ctrl.$onInit = init;
   $ctrl.$onDestroy = destroy;
 
-  $ctrl.user = user;
+  $ctrl.user1 = user.$find(1);
 
-  var currentUser = $ctrl.user.$find(1);
+  var anton = user.$build({ firstName: 'Anton', lastName: 'Sviderskiy', age: 30 });
+  anton.$save();
 
+  var testUser = user.$search({ firstName: 'Anton' });
+  console.log(testUser);
 
   function init() {
   }

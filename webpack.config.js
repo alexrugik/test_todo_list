@@ -7,6 +7,7 @@ var dependency = [
   'angular-mocks',
   'httpbackend',
   'jquery',
+  'lodash',
   'bootstrap'
 ];
 
@@ -70,7 +71,8 @@ module.exports = {
       allChunks: true
     }),
     new webpack.ProvidePlugin({
-      "jQuery": "jquery"
+      'jQuery': 'jquery',
+      '__' : 'lodash'
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
