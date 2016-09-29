@@ -1,9 +1,9 @@
 {
   "name": "angular_test",
-  "description": "",
+  "description": "for fast start with angular",
   "main": "index.js",
   "authors": [
-    "Barkov <lupina.ea@gbksoft.com>"
+    "Alex Ruzhinskiy <alexruzhinskiy@gmail.com>"
   ],
   "license": "ISC",
   "homepage": "https://github.com/alexrugik/own-angular-starter",

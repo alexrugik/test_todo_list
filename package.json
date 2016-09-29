@@ -1,7 +1,7 @@
 {
-  "name": "angular_test",
+  "name": "angular_starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "for fast start with angular",
   "main": "index.js",
   "dependencies": {
     "angular": "^1.5.8",
@@ -29,7 +29,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server",
     "server": "webpack-dev-server --progress --profile --colors --display-error-details --display-cached --watch",
-    "build": "webpack"
+    "build": "webpack",
+    "postinstall": "bower install"
   },
   "author": "",
   "license": "ISC"
