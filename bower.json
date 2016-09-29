@@ -1,0 +1,17 @@
+{
+  "name": "angular_test",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Barkov <lupina.ea@gbksoft.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/alexrugik/own-angular-starter",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

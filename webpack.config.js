@@ -3,6 +3,7 @@
 var dependency = [
   'angular',
   'angular-ui-router',
+  'angular-resource',
   'angular-restmod',
   'angular-mocks',
   'httpbackend',

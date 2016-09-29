@@ -5,6 +5,7 @@ require('../assets/assets.module');
 angular.module('app', [
   'ngMockE2E',
   'ui.router',
+  'ngResource',
   'restmod',
   require('./app.config'),
   require('./app.run'),
