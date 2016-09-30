@@ -24,21 +24,21 @@ module.exports = {
   context: __dirname + '/app',
   entry: {
     app: './app.module',
-    vendor: dependency,
+    vendor: dependency
   },
   output: {
     path: __dirname + '/web/',
-    filename: '[name].budle.js',
+    filename: '[name].budle.js'
   },
   resolve: {
     extensions: ['', '.js', '.json', '.css', '.html'],
-    modulesDirectories: ['node_modules']
+    modulesDirectories: ['node_modules', 'bower_components']
   },
   module: {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
       {
@@ -80,9 +80,9 @@ module.exports = {
         warnings: false
       },
       beautify: true,
-      mangle: false,
+      mangle: false
     }),
-    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.DedupePlugin()
   ],
   devServer: {
     contentBase: './web',
@@ -93,4 +93,4 @@ module.exports = {
     inline: true,
     historyApiFallback: true
   }
-}
+};
