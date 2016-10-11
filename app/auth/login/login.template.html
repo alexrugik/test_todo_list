@@ -1,0 +1,28 @@
+<div class="container">
+
+    <form name="form" class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputUsername" class="sr-only">User name</label>
+        <input ng-model="$ctrl.user.username" name="username" ng-minlength="3" ng-maxlength="25" type="text"
+               class="form-control" placeholder="User Name" autofocus="" required="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <div ng-show="!form.username.$valid && !form.username.$pristine" role="alert">
+            <span class="alert" ng-show="!form.username.$valid && !form.username.$pristine">Not valid user name, Please check it and try again</span>
+        </div>
+        <input ng-model="$ctrl.user.password" name="password" ng-minlength="6" type="password" id="inputPassword"
+               class="form-control"
+               placeholder="Password" required="">
+        <div ng-show="!form.password.$valid && !form.password.$pristine" role="alert">
+            <span class="alert">Password should have a minimum of 6 characters at least 1 numeric </span>
+        </div>
+        <div ng-show="$ctrl.showError" role="alert">
+            <span class="error" ng-bind="$ctrl.responseErrorText"></span>
+        </div>
+        <button ng-click="$ctrl.login()" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+    <div>
+        <a href="#" ui-sref="registration">Registation</a>
+    </div>
+</div>
+
+
