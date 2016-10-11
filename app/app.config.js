@@ -7,15 +7,18 @@ angular.module('app.config', [])
 
 Config.$inject = [
   '$urlRouterProvider',
-  '$locationProvider'
+  '$locationProvider',
+  '$httpProvider'
 ];
 
-function Config($urlRouterProvider, $locationProvider) {
+function Config($urlRouterProvider, $locationProvider, $httpProvider) {
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false
   });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/main');
+
+  $httpProvider.interceptors.push('tokenInjector');
 
 }
