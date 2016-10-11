@@ -21,7 +21,7 @@ function Route($stateProvider) {
       .state('login', {
         url: '^/login',
         parent: 'auth',
-        template: '<login></login>',
+        template: '<login></login>'
       })
       .state('registration', {
         url: '^/registration',

@@ -7,15 +7,12 @@ angular
     .component('login', {
       templateUrl: 'app/auth/login/login.template.html',
       controller: Login,
-      controllerAs: '$ctrl',
-      bindings: {
-        obj: '<'
-      }
+      controllerAs: '$ctrl'
     });
 
-Login.$inject = ['Token', 'User', '$state', '$timeout'];
+Login.$inject = [];
 
-function Login(Token, User, $state, $timeout) {
+function Login() {
   var $ctrl = this;
 
   $ctrl.user = {
@@ -36,29 +33,14 @@ function Login(Token, User, $state, $timeout) {
   }
 
   function login() {
-    if ($ctrl.user.username && $ctrl.user.password) {
-      User.save({ action: 'login' }, $ctrl.user)
-          .$promise.then(
-          function (response) {
-            Token.setToken(response.result.token);
-            $state.go('main');
-          },
-          function (error) {
-            console.log(error);
-            $ctrl.showError = true;
-            $ctrl.responseErrorText = 'Error: ' +  error.data.result[0].message;
-            $timeout(function () {
-              $ctrl.showError = false;
-            }, 3000);
-          }
-      );
+    if (!$ctrl.user.username && !$ctrl.user.password) {
+      return;
     }
   }
 
   function showError(state) {
     return state;
   }
-
 
 }
 

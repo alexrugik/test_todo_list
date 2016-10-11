@@ -9,9 +9,9 @@ angular.module('app.auth.registration', [])
       controllerAs: '$ctrl'
     });
 
-Registration.$inject = ['Token', 'User', '$state', '$timeout'];
+Registration.$inject = ['$timeout'];
 
-function Registration(Token, User, $state, $timeout) {
+function Registration($timeout) {
   var $ctrl = this;
 
   $ctrl.user = {
@@ -42,7 +42,7 @@ function Registration(Token, User, $state, $timeout) {
       }, 3000);
       return;
     }
-    User.save({ action: 'register' }, $ctrl.user).$promise.then(
+/*    User.save({ action: 'register' }, $ctrl.user).$promise.then(
         function (response) {
           console.log(response);
           Token.setToken(response.result.accessToken.token);
@@ -56,7 +56,7 @@ function Registration(Token, User, $state, $timeout) {
             $ctrl.showError = false;
           }, 3000);
         }
-    )
+    )*/
   }
 
   function checkConfirmPassword() {
