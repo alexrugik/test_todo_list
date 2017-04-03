@@ -1,10 +1,30 @@
-<div>MAIN page</div>
-
-<div>
-    <ul>
-        <li ::ng-bind="$ctrl.alex.getFirstName()"></li>
-        <li ::ng-bind="$ctrl.alex.getLastName()"></li>
-        <li ::ng-bind="$ctrl.alex.getAge()"></li>
+<div id="myDIV" class="header">
+    <h2>My To Do List</h2>
+    <input ng-model="$ctrl.nameOfNewToDoItem" type="text" id="myInput" placeholder="Title...">
+    <button ng-click="$ctrl.addItemToList($ctrl.nameOfNewToDoItem)" class="btn btn-primary">Add</button>
+    <button ng-click="$ctrl.clearItemsFromList()" class="btn btn-danger">Clear List</button>
+    <div>
+    </div>
+</div>
+<div id="to-to-list">
+    <ul id="myUL">
+        <li ng-repeat="item in $ctrl.toDoList track by item.id" ng-class="{checked: item.checked}">
+            <div ng-show="!item.editMode">
+                <input type="checkbox" ng-model="item.checked">
+                <span ng-bind="item.name"></span>
+                <span ng-class="{'glyphicon-ok': item.checked}" class="glyphicon"></span>
+                <span ng-click="$ctrl.deleteItemFromList(item.id)"
+                      ng-class="{'glyphicon-remove': !item.checked}"
+                      class="glyphicon">
+                </span>
+                <span ng-click="$ctrl.editItem(item)" class="glyphicon glyphicon-pencil"></span>
+            </div>
+            <div ng-show="item.editMode">
+                <input type="text" ng-model="item.name">
+                <span ng-click="$ctrl.editItem(item)" class="glyphicon glyphicon-ok"></span>
+            </div>
+        </li>
     </ul>
 </div>
-<div>TEST</div>
+
+
